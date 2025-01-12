@@ -3,9 +3,15 @@ from flet import Page, TextField, Column, Button, BottomSheet, Container, TextSt
 class Ejercicio7:
     def __init__(self, page: Page):
         self.page = page
+        self.text_fielda_A = TextField(
+            label="Ingrese el valor de A",
+        )
+        self.text_fielda_B = TextField(
+            label="Ingrese el valor de B",
+        )
         self.__init_text_fields()
 
-    def algoritmo_propuesto(self, valor_A: float, valor_B: float):
+    def __algoritmo_propuesto(self, valor_A: float, valor_B: float):
         if valor_A > valor_B:
             return f"A es mayor que B"
         else:
@@ -13,16 +19,7 @@ class Ejercicio7:
                 return f"A es igual a B"
             else:
                 return f"A es menor que B"
-            
-            
-    def __init_text_fields(self) -> None: 
-        self.text_fielda_A = TextField(
-            label="Ingrese el valor de A",
-        )
-
-        self.text_fielda_B = TextField(
-            label="Ingrese el valor de B",
-        )
+                    
         
     def render(self) -> Column:
         return Column(
