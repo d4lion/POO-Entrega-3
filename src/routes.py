@@ -3,6 +3,7 @@ from flet import Page
 # Pages
 from pages.Home import Home
 from pages.parte_1.capitulo_3.ejercicio_18.Solucion import Ejercicio18
+from pages.parte_1.capitulo_3.ejercicio_19.Solucion import Ejercicio19
 
 def get(page: Page = None):
     return [
@@ -15,5 +16,10 @@ def get(page: Page = None):
             'path': '/ejercicio_18',
             'title': 'POO - Ejercicio 18',
             'component' : Ejercicio18(page)
+        },
+        {
+            'path': '/ejercicio_19',
+            'title': 'POO - Ejercicio 19',
+            'component' : Ejercicio19(page)
         }
 ]
