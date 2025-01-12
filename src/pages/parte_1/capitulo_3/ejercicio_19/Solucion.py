@@ -5,11 +5,11 @@ from flet import (Page, TextField, BottomSheet, Container,
 from .Triangulo import Triangulo
 
 class Ejercicio19:
-    def __init__(self, page: Page):
+    def __init__(self, page: Page) -> None:
         self.page = page
         self.__init_text_fields()
         
-    async def calcular(self, e):
+    async def calcular(self, e) -> None:
         try:
             t1 = Triangulo(float(self.lado_triangulo_text_field.value))
             self.lado_triangulo_text_field.value = ""
@@ -23,7 +23,7 @@ class Ejercicio19:
         finally:
             self.page.update()
 
-    def create_result_dialog(self, triangulo):
+    def create_result_dialog(self, triangulo: Triangulo) -> BottomSheet:
         return BottomSheet(
             content=Container(
                 padding=60,
@@ -39,7 +39,7 @@ class Ejercicio19:
             )
         )
 
-    def create_result_row(self, label, value):
+    def create_result_row(self, label: str, value: str) -> Row:
         return Row(
             controls=[
                 TextField(
@@ -57,7 +57,7 @@ class Ejercicio19:
             alignment=MainAxisAlignment.CENTER
         )
 
-    def create_error_banner(self):
+    def create_error_banner(self) -> Banner:
         err_banner = Banner(
             bgcolor=Colors.AMBER_100,
             leading=Icon(Icons.WARNING_AMBER_ROUNDED, color=Colors.AMBER, size=40),
@@ -75,7 +75,7 @@ class Ejercicio19:
         
         return err_banner
     
-    def __init_text_fields(self):
+    def __init_text_fields(self) -> None:
         self.lado_triangulo_text_field = TextField(
         label='Lado',
         suffix_text='cm',
@@ -86,7 +86,7 @@ class Ejercicio19:
             on_click=self.calcular
         )
         
-    def render(self):
+    def render(self) -> Column:
         return Column(
         controls=[
             Text("Calcular el área de un triángulo equilatero, perimetro y su altura",
