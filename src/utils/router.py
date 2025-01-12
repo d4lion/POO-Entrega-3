@@ -60,5 +60,6 @@ class Router:
                     ]
                 )
             )
+            raise Exception("Error al renderizar la ruta", e)
         finally:
             self.page.update()
