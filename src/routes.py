@@ -5,6 +5,7 @@ from pages.Home import Home
 from pages.parte_1.capitulo_3.ejercicio_18.Solucion import Ejercicio18
 from pages.parte_1.capitulo_3.ejercicio_19.Solucion import Ejercicio19
 from pages.parte_1.capitulo_4.ejercicio_7.Solucion import Ejercicio7
+from pages.parte_1.capitulo_4.ejercicio_10.Solucion import Ejercicio10
 
 def get(page: Page = None):
     return [
@@ -27,5 +28,10 @@ def get(page: Page = None):
             'path': '/ejercicio_7',
             'title': 'POO - Ejercicio 7',
             'component' : Ejercicio7(page)
+        },
+        {
+            'path': '/ejercicio_10',
+            'title': 'POO - Ejercicio 10',
+            'component' : Ejercicio10(page)
         }
 ]
