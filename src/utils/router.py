@@ -40,6 +40,7 @@ class Router:
     def _render_route(self, RouteEvent: RouteChangeEvent):
         try:
             title, component = self._get_route_component(RouteEvent.route)
+            self.page.views.clear()
             self.page.title = title
             self.page.views.append(
                 View(
