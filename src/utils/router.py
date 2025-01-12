@@ -1,14 +1,19 @@
-from flet import Page, View, Column, Text, RouteChangeEvent, ThemeMode
+from flet import Page, View, Column, Text, RouteChangeEvent, ThemeMode, AppBar, IconButton
 
 
 class Router:
     def __init__(self, page: Page, routes: list[dict[str:dict]] = [], 
-                 app_bar=None, WIDTH=1000, HEIGHT=600, WINDOW_RESIZABLE=True, 
+                 app_bar: AppBar | None =None, WIDTH=1000, HEIGHT=600, WINDOW_RESIZABLE=True, 
                  WINDOW_MAXIMIZABLE=False, ALWAYS_ON_TOP=False, THEME_MODE=ThemeMode.LIGHT):
         
         self.routes = routes
         self.page = page
         self.app_bar = app_bar
+        self.theme_mode = THEME_MODE
+        
+        self.SunnyButton: IconButton = self.app_bar.actions[0]
+        
+        self.SunnyButton.on_click = lambda e: self.change_theme()
         
         # Page config
         self.page.appbar = self.app_bar
@@ -17,7 +22,7 @@ class Router:
         self.page.window.resizable = WINDOW_RESIZABLE
         self.page.window.maximizable = WINDOW_MAXIMIZABLE
         self.page.window.always_on_top = ALWAYS_ON_TOP
-        self.page.theme_mode = THEME_MODE
+        self.page.theme_mode = self.theme_mode
         
         # Routers Confing
         self.page.on_route_change = self._render_route
@@ -29,6 +34,15 @@ class Router:
             )
         except Exception as e:
             raise Exception("Debes crear almenos una ruta para renderizar la aplicación", e)
+        
+    def change_theme(self):        
+        if self.page.theme_mode == ThemeMode.LIGHT:
+            self.page.theme_mode = ThemeMode.DARK
+            self.SunnyButton.icon = "wb_sunny"
+        else:
+            self.page.theme_mode = ThemeMode.LIGHT
+            self.SunnyButton.icon = "wb_sunny_outlined"
+        self.page.update()
         
     def _get_route_component(self, path: str) -> dict:
         for route in self.routes:
