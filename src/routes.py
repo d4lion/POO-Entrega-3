@@ -12,11 +12,6 @@ from pages.parte_1.capitulo_4.ejercicio_23.Solucion import Ejercicio23
 def get(page: Page = None):
     return [
         {
-            'path': '/',
-            'title': 'Home',
-            'component': Home(page)
-        },
-        {
             'path': '/ejercicio_18',
             'title': 'POO - Ejercicio 18',
             'component' : Ejercicio18(page)
