@@ -9,6 +9,12 @@ from pages.parte_1.capitulo_4.ejercicio_10.Solucion import Ejercicio10
 from pages.parte_1.capitulo_4.ejercicio_22.Solucion import Ejercicio22
 from pages.parte_1.capitulo_4.ejercicio_23.Solucion import Ejercicio23
 
+# Parte 2
+from pages.parte_2.circulo.UI import CirculoUI
+from pages.parte_2.cuadrado.UI import CuadradoUI
+from pages.parte_2.rectangulo.UI import RectanguloUI
+from pages.parte_2.triangulo.UI import TrianguloUI
+
 def get(page: Page = None):
     return [
         {
@@ -40,5 +46,25 @@ def get(page: Page = None):
             'path': '/ejercicio_23',
             'title': 'POO - Ejercicio 23',
             'component' : Ejercicio23(page)
+        },
+        {
+            'path': '/ejercicio_circulo',
+            'title': 'POO - Ejercicio Circulo',
+            'component' : CirculoUI(page)
+        },
+        {
+            'path': '/ejercicio_cuadrado',
+            'title': 'POO - Ejercicio Cuadrado',
+            'component' : CuadradoUI(page)
+        },
+        {
+            'path': '/ejercicio_rectangulo',
+            'title': 'POO - Ejercicio Rectangulo',
+            'component' : RectanguloUI(page)
+        },
+        {
+            'path' : '/ejercicio_triangulo',
+            'title': 'POO - Ejercicio Triangulo',
+            'component' : TrianguloUI(page)
         }
 ]
